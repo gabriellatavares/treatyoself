@@ -1,4 +1,5 @@
 ======   HOW TO RUN IT   ======
+
 Clone first the repo, then you ll need 2 terminals
 
 In the firts one :
