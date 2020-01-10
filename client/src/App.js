@@ -10,10 +10,6 @@ function App() {
   const [isLoggedIn,setIsLoggedIn] = useState(false)
   const token = JSON.parse(localStorage.getItem('token'))
 
-  useEffect( () => {
-     verify_token()
-  },[verify_token])
-
   const verify_token = async () => {
    if( token === null )return setIsLoggedIn(false)
      try{
@@ -24,6 +20,10 @@ function App() {
         console.log(error)
      }
   }
+  useEffect( () => {
+     verify_token()
+  },[verify_token])
+
 
   const login  = (token) => {
      localStorage.setItem('token',JSON.stringify(token)) 
