@@ -44,8 +44,8 @@ const login = async (req,res) => {
 }
 
 const verify_token = (req,res) => {
-  console.log(req.body.token)
-       const { token } = req.body;
+  console.log(req.headers.authorization)
+  const token = req.headers.authorization;
        jwt.verify(token, jwt_secret, (err,succ) => {
              err ? res.json({ok:false,message:'something went wrong'}) : res.json({ok:true,succ})
        });      
