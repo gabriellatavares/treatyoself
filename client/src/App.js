@@ -9,7 +9,6 @@ import Navbar from './components/Navbar.js'
 function App() {
   const [isLoggedIn,setIsLoggedIn] = useState(false)
   const token = JSON.parse(localStorage.getItem('token'))
-
   const verify_token = async () => {
    if( token === null )return setIsLoggedIn(false)
      try{
