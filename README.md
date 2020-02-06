@@ -1,25 +1,17 @@
-======   HOW TO RUN IT   ======
-<<<<<<< HEAD
-=======
+# How to run it:
 
->>>>>>> 27a42936cbbd06c801c8082e056d0fa2afcf65fd
-Clone first the repo, then you ll need 2 terminals
+First clone the repo, then you will need 2 terminal windows.
 
-In the firts one :
+In the first one you will run a client:
 
 1) cd authentication_2020
 2) cd client
 3) npm install
 4) npm start
 
-In the other :
+In the second one you will run a server:
 
 1) cd authentication_2020
 2) cd server
 3) npm install
-<<<<<<< HEAD
 4) nodemon index.js
-=======
-4) nodemon index.js
-
->>>>>>> 27a42936cbbd06c801c8082e056d0fa2afcf65fd
