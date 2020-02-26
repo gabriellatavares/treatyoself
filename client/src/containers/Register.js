@@ -14,7 +14,7 @@ const Register = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		try{
-			const response =  await Axios.post(`http://localhost:8080/users/register`,{
+			const response =  await Axios.post(`http://localhost/3030/users/register`,{
 	            email    : form.email,
 			    password : form.password,
 			    password2: form.password2

@@ -13,7 +13,7 @@ function App() {
    if( token === null )return setIsLoggedIn(false)
      try{
           axios.defaults.headers.common['Authorization'] = token
-          const response = await axios.post(`http://localhost:8080/users/verify_token`)
+          const response = await axios.post(`http://localhost:3030/users/verify_token`)
           return response.data.ok ? setIsLoggedIn(true) : setIsLoggedIn(false)
      }
      catch(error){
