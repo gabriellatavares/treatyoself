@@ -5,6 +5,7 @@ import Login from './containers/Login.js'
 import Register from './containers/Register.js'
 import SecretPage from './containers/SecretPage.js'
 import Navbar from './components/Navbar.js'
+import { URL } from './config'
 
 function App() {
   const [isLoggedIn,setIsLoggedIn] = useState(false)
@@ -13,7 +14,7 @@ function App() {
    if( token === null )return setIsLoggedIn(false)
      try{
           axios.defaults.headers.common['Authorization'] = token
-          const response = await axios.post(`http://localhost:3030/users/verify_token`)
+          const response = await axios.post(`${URL}/users/verify_token`)
           return response.data.ok ? setIsLoggedIn(true) : setIsLoggedIn(false)
      }
      catch(error){
