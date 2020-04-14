@@ -9,7 +9,9 @@ import { URL } from './config'
 
 function App() {
   const [isLoggedIn,setIsLoggedIn] = useState(false)
+  
   const token = JSON.parse(localStorage.getItem('token'))
+
   const verify_token = async () => {
    if( token === null )return setIsLoggedIn(false)
      try{
@@ -23,10 +25,11 @@ function App() {
   }
   useEffect( () => {
      verify_token()
-  },[verify_token])
+  },[])
 
 
   const login  = (token) => {
+     console.log('token ===>')
      localStorage.setItem('token',JSON.stringify(token)) 
      setIsLoggedIn(true)
   }
