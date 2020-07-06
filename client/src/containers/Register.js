@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { URL } from "../config";
 
 const Register = () => {
@@ -15,8 +15,7 @@ const Register = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await Axios.post(
-        `${URL}/users/register`,
+      const response = await axios.post(`${URL}/users/register`,
         {
           email: form.email,
           password: form.password,
@@ -37,13 +36,18 @@ const Register = () => {
     >
       <label>Email</label>
       <input name="email" />
+
       <label>Password</label>
       <input name="password" />
+
       <label>Repeat password</label>
       <input name="password2" />
+
       <button>register</button>
       <div className="message">
+
         <h4>{message}</h4>
+
       </div>
     </form>
   );

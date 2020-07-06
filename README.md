@@ -15,3 +15,11 @@ In the second one you will run a server:
 2) cd server
 3) npm install
 4) nodemon index.js
+
+If you are using windows and receive a phyton related 
+error after running npm install from the server folder,
+run : 
+
+```
+npm install --global --production windows-build-tools
+```

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { URL } from "../config";
 
 const Login = props => {
@@ -14,7 +14,7 @@ const Login = props => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await Axios.post(`${URL}/users/login`, {
+      const response = await axios.post(`${URL}/users/login`, {
         email: form.email,
         password: form.password
       });
