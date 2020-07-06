@@ -1,6 +1,7 @@
 import React , { useState , useEffect } from 'react'
 import axios from 'axios' 
 import { BrowserRouter as Router , Route , Redirect } from 'react-router-dom'
+import Home from './containers/Home.js'
 import Login from './containers/Login.js'
 import Register from './containers/Register.js'
 import SecretPage from './containers/SecretPage.js'
@@ -39,14 +40,23 @@ function App() {
   }
   return (
      <Router>
-        <Navbar/>
-        <Route exact path='/'      render={ props => <Login login={login} {...props}/>} />
-        <Route path='/register'    component={Register}/>
-        <Route path='/secret-page' render={ props => {
-                                            return !isLoggedIn 
+        <Navbar isLoggedIn={isLoggedIn}/>
+        <Route exact path='/'      component={Home}/>
+        <Route exact path='/login' render={ props => 
+                                             isLoggedIn 
+                                             ? <Redirect to={'/secret-page'}/>
+                                             : <Login login={login} {...props}/>
+        }/>       
+        <Route path='/register'    render={ props => 
+                                             isLoggedIn 
+                                             ? <Redirect to={'/secret-page'}/>
+                                             : <Register {...props}/>
+        }/>
+        <Route path='/secret-page' render={ props => 
+                                            !isLoggedIn 
                                             ? <Redirect to={'/'}/>
                                             : <SecretPage logout={logout} {...props}/>   
-        }}/>
+        }/>
      </Router>
   );
 }
