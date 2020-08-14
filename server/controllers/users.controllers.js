@@ -27,7 +27,7 @@ const register = async (req, res) => {
       password: hash
     };
     await User.create(newUser);
-    res.json({ ok: true, message: "successful register" });
+    res.json({ ok: true, message: "successful'ly registered" });
   } catch (error) {
     res.json({ ok: false, error });
   }
@@ -42,16 +42,15 @@ const login = async (req, res) => {
   if (!email || !password)
     return res.json({ ok: false, message: "All field are required" });
   if (!validator.isEmail(email))
-    return res.json({ ok: false, message: "please provide a valid email" });
+    return res.json({ ok: false, message: "invalid data provided" });
   try {
     const user = await User.findOne({ email });
-    if (!user)
-      return res.json({ ok: false, message: "plase provide a valid email" });
+    if (!user) return res.json({ ok: false, message: "invalid data provided" });
     const match = await argon2.verify(user.password, password);
     if (match) {
-      const token = jwt.sign(user.toJSON(), jwt_secret, { expiresIn: 100080 }); //{expiresIn:'365d'}
+      const token = jwt.sign(user.toJSON(), jwt_secret, { expiresIn:  "1h" }); //{expiresIn:'365d'}
       res.json({ ok: true, message: "welcome back", token, email });
-    } else return res.json({ ok: false, message: "invalid password" });
+    } else return res.json({ ok: false, message: "invalid data provided" });
   } catch (error) {
     res.json({ ok: false, error });
   }

@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 async function connecting(){
     try {
+    	//'mongodb://127.0.0.1/test_mongodb
         await mongoose.connect(process.env.MONGO, { useUnifiedTopology: true , useNewUrlParser: true })
         console.log('Connected to the DB')
     } catch ( error ) {

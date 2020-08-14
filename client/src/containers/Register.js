@@ -9,9 +9,11 @@ const Register = () => {
     password2: ""
   });
   const [message, setMessage] = useState("");
+
   const handleChange = e => {
     setValues({ ...form, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = async e => {
     e.preventDefault();
     try {
@@ -24,10 +26,16 @@ const Register = () => {
       );
       setMessage(response.data.message);
       //console.log(response)
+      if (response.data.ok) {
+        setTimeout(() => {
+          props.history.push("/login");
+        }, 2000);
+      }
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <form
       onSubmit={handleSubmit}

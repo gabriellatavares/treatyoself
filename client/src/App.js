@@ -24,13 +24,14 @@ function App() {
         console.log(error)
      }
   }
+
   useEffect( () => {
      verify_token()
   },[])
 
 
   const login  = (token) => {
-     console.log('token ===>')
+     console.log('token ===>',token)
      localStorage.setItem('token',JSON.stringify(token)) 
      setIsLoggedIn(true)
   }

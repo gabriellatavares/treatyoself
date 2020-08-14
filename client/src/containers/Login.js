@@ -8,17 +8,23 @@ const Login = props => {
     password: ""
   });
   const [message, setMessage] = useState("");
+
   const handleChange = e => {
     setValues({ ...form, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = async e => {
     e.preventDefault();
     try {
+      
       const response = await axios.post(`${URL}/users/login`, {
         email: form.email,
         password: form.password
       });
+
       setMessage(response.data.message);
+      
+
       if (response.data.ok) {
         setTimeout(() => {
           props.login(response.data.token);
