@@ -16,7 +16,7 @@ In the second one you will run a server:
 3) npm install
 4) nodemon index.js
 
-If you are using windows and receive a phyton related 
+If you are using windows and receive a Python related 
 error after running npm install from the server folder,
 run : 
 
