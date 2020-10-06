@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { URL } from "../config";
 
-const Register = () => {
+const Register = (props) => {
   const [form, setValues] = useState({
     email: "",
     password: "",
