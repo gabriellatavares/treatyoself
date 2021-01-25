@@ -11,20 +11,6 @@ class UpdateProduct extends React.Component {
     price: '',
     stock: '',
   }
-  componentDidMount(){
-    Axios.get(`${URL}/product/` + this.props.match.params.id)
-    .then(response => {
-      this.setState({
-        name: response.data.name,
-        image: response.data.image,
-        description: response.data.description,
-        price: response.data.price,
-      })
-    })
-    .catch(error => {
-      console.log('error!')
-    })
-  }
 
   handleChange = event => {
     this.setState({_id: event.target.value})
