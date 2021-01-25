@@ -17,7 +17,7 @@ const Register = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post(`${URL}/users/register`, {
+			const response = await axios.post(`${URL}/admin/register`, {
 				email: form.email,
 				password: form.password,
 				password2: form.password2
@@ -40,10 +40,10 @@ const Register = (props) => {
 			<input name="email" />
 
 			<label>Password</label>
-			<input name="password" />
+			<input name="password" type='password' />
 
 			<label>Repeat password</label>
-			<input name="password2" />
+			<input name="password2" type='password' />
 
 			<button>register</button>
 			<div className="message">

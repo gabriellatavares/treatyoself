@@ -5,10 +5,9 @@ import { URL } from '../config';
 const Login = (props) => {
 	const [ form, setValues ] = useState({
 		email: '',
-		password: ''
+		password: '',
 	});
 	const [ message, setMessage ] = useState('');
-	debugger;
 	const handleChange = (e) => {
 		setValues({ ...form, [e.target.name]: e.target.value });
 	};
@@ -16,7 +15,7 @@ const Login = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post(`${URL}/users/login`, {
+			const response = await axios.post(`${URL}/admin/login`, {
 				email: form.email,
 				password: form.password
 			});
@@ -33,17 +32,19 @@ const Login = (props) => {
 			console.log(error);
 		}
 	};
-	return (
+	return (<>
+	<h1>Login here:</h1>
 		<form onSubmit={handleSubmit} onChange={handleChange} className="form_container">
 			<label>Email</label>
 			<input name="email" />
 			<label>Password</label>
-			<input name="password" />
+			<input name="password" type='password' />
 			<button>login</button>
 			<div className="message">
 				<h4>{message}</h4>
 			</div>
 		</form>
+		</>
 	);
 };
 

@@ -1,4 +1,4 @@
-const User = require('../models/users.models');
+const Admin = require('../models/admin.models');
 const argon2 = require('argon2'); //https://github.com/ranisalt/node-argon2/wiki/Options
 const jwt = require('jsonwebtoken');
 const validator = require('validator');
@@ -15,17 +15,17 @@ const register = async (req, res) => {
 	if (password !== password2) return res.json({ ok: false, message: 'passwords must match' });
 	if (!validator.isEmail(email)) return res.json({ ok: false, message: 'please provide a valid email' });
 	try {
-		const user = await User.findOne({ email });
-		if (user) return res.json({ ok: false, message: 'email already in use' });
+		const admin = await Admin.findOne({ email });
+		if (admin) return res.json({ ok: false, message: 'email already in use' });
 		// 1234
 		// osiduv0w8hv08jew0vheohv
 		const hash = await argon2.hash(password);
 		console.log('hash ==>', hash);
-		const newUser = {
+		const newAdmin = {
 			email,
 			password: hash
 		};
-		await User.create(newUser);
+		await Admin.create(newAdmin);
 		res.json({ ok: true, message: 'successfully registered' });
 	} catch (error) {
 		res.json({ ok: false, error });
@@ -41,11 +41,11 @@ const login = async (req, res) => {
 	if (!email || !password) return res.json({ ok: false, message: 'All field are required' });
 	if (!validator.isEmail(email)) return res.json({ ok: false, message: 'invalid data provided' });
 	try {
-		const user = await User.findOne({ email });
-		if (!user) return res.json({ ok: false, message: 'invalid data provided' });
-		const match = await argon2.verify(user.password, password);
+		const admin = await Admin.findOne({ email });
+		if (!admin) return res.json({ ok: false, message: 'invalid data provided' });
+		const match = await argon2.verify(admin.password, password);
 		if (match) {
-			const token = jwt.sign(user.toJSON(), jwt_secret, { expiresIn: '1h' }); //{expiresIn:'365d'}
+			const token = jwt.sign(admin.toJSON(), jwt_secret, { expiresIn: '1h' }); //{expiresIn:'365d'}
 			res.json({ ok: true, message: 'welcome back', token, email });
 		} else return res.json({ ok: false, message: 'invalid data provided' });
 	} catch (error) {

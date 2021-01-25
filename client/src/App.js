@@ -7,6 +7,12 @@ import Register from './containers/Register.js';
 import SecretPage from './containers/SecretPage.js';
 import Navbar from './components/Navbar.js';
 import { URL } from './config';
+import AddProduct from './containers/AddProduct'
+import DeleteProduct from './containers/DeleteProduct'
+import UpdateProduct from './containers/UpdateProduct'
+import Product from './containers/Product'
+import Products from './containers/Products'
+
 
 function App() {
 	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
@@ -17,7 +23,7 @@ function App() {
 		if (token === null) return setIsLoggedIn(false);
 		try {
 			axios.defaults.headers.common['Authorization'] = token;
-			const response = await axios.post(`${URL}/users/verify_token`);
+			const response = await axios.post(`${URL}/admin/verify_token`);
 			return response.data.ok ? setIsLoggedIn(true) : setIsLoggedIn(false);
 		} catch (error) {
 			console.log(error);
@@ -54,6 +60,12 @@ function App() {
 				path="/secret-page"
 				render={(props) => (!isLoggedIn ? <Redirect to={'/'} /> : <SecretPage logout={logout} {...props} />)}
 			/>
+			  <Route exact path = "/products" component = {Products}/>
+        <Route exact path = "/product/:id" component = {Product}/>
+				<Route exact path = "/products/add" component = {AddProduct}/>
+				<Route exact path = "/products/delete/:id" component = {DeleteProduct}/>
+				<Route exact path = "/products/update" component = {UpdateProduct}/>
+
 		</Router>
 	);
 }

@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Merriweather', serif;
+	font-family: 'Merriweather', serif;
+	text-align: center;
 }
 
 .navbar {
@@ -49,5 +50,30 @@ button {
 	justify-content: center;
 }
 
+.productGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 1em;
+	padding: 70px;
 
+}
+.allProducts {
+	width:  50%;
+	height: 70%;
+	object-fit: cover;
+}
+.oneProduct {
+	width: 70%;
+	height: auto;
+}
+
+.grid2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.descrip {
+	padding: 100px;
+  text-align: initial;
+}
 
