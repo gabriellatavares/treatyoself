@@ -11,6 +11,20 @@ class UpdateProduct extends React.Component {
     price: '',
     stock: '',
   }
+  componentDidMount(){
+    Axios.get(`${URL}/product/` + this.props.match.params.id)
+    .then(response => {
+      this.setState({
+        name: response.data.name,
+        image: response.data.image,
+        description: response.data.description,
+        price: response.data.price,
+      })
+    })
+    .catch(error => {
+      console.log('error!')
+    })
+  }
 
   handleChange = event => {
     this.setState({_id: event.target.value})
@@ -26,7 +40,7 @@ class UpdateProduct extends React.Component {
     const { name, image, description, price, stock } = this.state;
     try {
       await Axios.post(`${URL}/products/update`, {
-        _id: this.state.id,
+        _id: this.state._id,
         nameUp: name,
         imageUp: image,
         descUp: description,
