@@ -1,5 +1,9 @@
 import React from 'react';
+import Products from './Products'
 
-const Home = () => <h1>Home Page</h1>;
+const Home = () => <>
+  <Products />
+</>
+
 
 export default Home;

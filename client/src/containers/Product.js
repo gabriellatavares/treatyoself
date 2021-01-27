@@ -1,6 +1,8 @@
 import React from 'react'
 import Axios from 'axios'
 import { URL } from '../config'
+import { NavLink } from 'react-router-dom'
+import AddContent from './AddContent'
 
 class Product extends React.Component{
   state={
@@ -29,10 +31,16 @@ class Product extends React.Component{
       <div className='grid2'>
         <div>
         <h1>{product.name}</h1> 
-        <img className='oneProduct' src={product.image} alt='product'/></div>
+        <img className='oneProduct' src={product.image} alt='product'/>
+        </div>
         <div className='descrip'>
         <p>{product.description}</p>
         <p>{product.price}€</p>
+        <NavLink to = {`/products/`}>Back to products</NavLink>
+        <AddContent
+        product_id = {product._id}
+        name = {product.name}
+        price = {product.price}/>
         </div>
       </div>
       </>
