@@ -27,7 +27,7 @@ app.use(cors());
 // =============== ROUTES ==============================
 app.use('/admin', require('./routes/admin.routes'));
 app.use('/products', require('./routes/products.route'));
-app.use('/cart', require('./routes/cart.route'));
+// app.use('/cart', require('./routes/cart.route'));
 
 // =============== START SERVER =====================
 app.listen(port, () => console.log(`server listening on port ${port}`));

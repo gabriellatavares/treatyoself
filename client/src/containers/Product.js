@@ -40,7 +40,8 @@ class Product extends React.Component{
         <AddContent
         product_id = {product._id}
         name = {product.name}
-        price = {product.price}/>
+        price = {product.price}
+        image = {product.image}/>
         </div>
       </div>
       </>

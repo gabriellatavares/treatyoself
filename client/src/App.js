@@ -14,10 +14,11 @@ import Product from './containers/Product'
 import Products from './containers/Products'
 import Cart from './containers/Cart'
 
-
 function App() {
 
 	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+
+
 
 	const token = JSON.parse(localStorage.getItem('token'));
 

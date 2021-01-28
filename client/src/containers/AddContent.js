@@ -1,48 +1,43 @@
-import React from 'react'
-import Axios from 'axios'
-import { URL } from '../config'
+import React, { useEffect, useState } from 'react'
 
-class AddContent extends React.Component {
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
 
-
-	state = {
-		userID: localStorage.getItem('userID'),
-		product_id: this.props.product_id,
-		quantity: 1,
-	}
-
-	handleClick = () => {
-		let { userID, product_id, quantity } = this.state;
-		this.add(userID, product_id, quantity);
-	}
-
-	async add(){
-		let { userID, product_id, quantity } = this.state;
-		try {
-			const response = await Axios.post(`${URL}/cart/add`, {
-				userID: userID,
-				product_id: product_id, 
-				quantity: quantity
-            });
-			console.log(response);		
-		}
-		catch(error) {
-			console.log(error);
-		}
-		// window.location = '/cart';
-	}
-
-	render() {
- 		return (
-			<div>
-				
-				<button onClick = {this.handleClick}>Add to Cart</button>
-		
-			</div>
-		);
-	}
-
+const AddContent = (props) => {
+  const [cart, setCart] = useState(cartFromLocalStorage)
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+})
+return (
+    <button onClick={() => setCart ([
+      {
+        name: props.name,
+        id: props._id,
+        price: props.price,
+        image: props.image,
+      }
+    ])}>
+      Let's shop!</button>
+  )
 }
 
-
 export default AddContent
+
+
+// import React from 'react'
+// class AddContent extends React.Component {
+//   setProduct(){
+//     let teste = []
+//     let product = {name: this.props.name, price: this.props.price, image: this.props.image, id: this.props._id}
+//     teste.push(product)
+//     localStorage.setItem('cart', JSON.stringify(teste))    
+    
+
+//   }
+//   render(){
+//     return (
+//       <button onClick={ () => this.setProduct()}>Buy Item!</button>
+//     )
+//   }
+// }
+
+// export default AddContent
