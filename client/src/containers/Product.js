@@ -34,9 +34,9 @@ class Product extends React.Component{
         <img className='oneProduct' src={product.image} alt='product'/>
         </div>
         <div className='descrip'>
+        <NavLink to = {`/products/`}>Back to products</NavLink>
         <p>{product.description}</p>
         <p>{product.price}€</p>
-        <NavLink to = {`/products/`}>Back to products</NavLink>
         <AddContent
         product_id = {product._id}
         name = {product.name}

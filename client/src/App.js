@@ -6,6 +6,7 @@ import Login from './containers/Login.js';
 import Register from './containers/Register.js';
 import SecretPage from './containers/SecretPage.js';
 import Navbar from './components/Navbar.js';
+import Footer from './components/Footer.js'
 import { URL } from './config';
 import AddProduct from './containers/AddProduct'
 import DeleteProduct from './containers/DeleteProduct'
@@ -48,7 +49,7 @@ function App() {
 	};
 	return (
 		<Router>
-			<Navbar isLoggedIn={isLoggedIn} />
+			<Navbar />
 			<Route exact path="/" component={Home} />
 			<Route
 				exact
@@ -69,7 +70,7 @@ function App() {
 				<Route exact path = "/products/delete/:id" component = {DeleteProduct}/>
 				<Route exact path = "/products/update" component = {UpdateProduct}/>
 				<Route exact path = "/cart" component = {Cart}/>
-
+			<Footer isLoggedIn={isLoggedIn} />
 		</Router>
 	);
 }

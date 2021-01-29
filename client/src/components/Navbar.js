@@ -1,25 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = ({ isLoggedIn }) => (
+
+const Navbar = () => (
 	<div className="navbar">
 		<NavLink exact style={styles.default} activeStyle={styles.active} to={'/'}>
-			Home - public
+			Home
 		</NavLink>
-
-		{!isLoggedIn ? (
-			[
-				<NavLink exact style={styles.default} activeStyle={styles.active} to={'/register'}>
-					Register
-				</NavLink>,
-				<NavLink exact style={styles.default} activeStyle={styles.active} to={'/login'}>
-					Login
-				</NavLink>
-			]
-		) : null}
-
-		<NavLink exact style={styles.default} activeStyle={styles.active} to={'/secret-page'}>
-			Secret Page - protected
+		<NavLink exact style={styles.default} activeStyle={styles.active} to={'/cart'}>
+			Cart
 		</NavLink>
 	</div>
 );

@@ -1,105 +1,70 @@
-// import React from 'react'
-// import Axios from 'axios'
-// import { URL } from '../config'
-// import Total from './CartTotal'
+import React from "react";
+import EmptyCart from './Empty'
+import Total from './Total'
 
-// class Cart extends React.Component {
 
-//   state = {
-//     items: [],
-//     copyItems: [],
-//     product_id: '',
-//     loading: true,
-//   }
-//   componentDidMount(){
-//     this.find();
-//   }
-//   async find(){
-//     try {
-//       const userID = localStorage.getItem('userID')
-//       const response = await Axios.get(`${URL}/cart/${userID}`)
-//       this.setState({
-//         items: response.data.items,
-//         loading: false,
-//       })
-//       console.log(response)
-//     } 
-//     catch(error){
-//       this.setState({ loading: false, error })
-//     }
-//   }
-//   handleChange = (e, i) =>{
-//     let inputValue = e.target.value;
-//     this.setState(prevState => {
-//       let items = [...prevState.items]
-//       items[i] = {...items[i], quantity: inputValue}
-//       return { items }
-//     })
-//   }
-//   async remove(product_id){
-//     try {
-//       const userID = localStorage.getItem('userID')
-//       const response = await Axios.delete(`${URL}/cart/delete`, {
-//         data: { userID: userID, product_id: product_id }
-//       })
-//       this.setState ({
-//         copyItems: response.data
-//       })
-//       window.location='/cart'
-//     }
-//     catch(error) {
-//       console.log(error)
-//     }
-//   }
-//   handleClear = async (e) => {
-//     e.preventDefault()
-//     try {
-//       const userID = localStorage.getItem('userID')
-//       const response = await Axios.post(`${URL}/cart/clear`, {
-//         userID: userID
-//       })
-//       console.log(response)
-//       window.location = '/cart';
-//     } 
-//     catch(error){
-//       console.log(error)
-//     }
-//   }
-//   render(){
-//     let { items, loading } = this.state;
-//     return (
-//       <div>
-//       <h1>My cart</h1>
-//       {!loading ? 
-//       (items.map((product, idx) => {
-//         return (
-//           <div key = {product.product._id}>
-//             <img src = {product.product.image} alt = 'item'/>
-//             <h3>{product.product.name}</h3>
-//             <input type= 'number' value ={product.quantity} onChange = {e => this.handleChange(e, idx)}/>
-//             <h3>{product.quantity} * {product.product.price}€</h3>
-//             <button onClick = {(e) => {this.remove(product.product._id);}}>X</button>
-//             </div>
-          
-//         )
-//       }))
-//       : (<h2>Your cart is loading...</h2>) }
-//       	<button onClick = {this.handleClear}>Clear Cart</button>
-//         <Total items = {items} />
-//       </div>
+class Cart extends React.Component {
 
-//     )
-//   }
-// }
-// export default Cart;
-
-import React from 'react'
-
-export class Cart extends React.Component{
-  render(){
-    return (
-      <div>Cart</div>
-    )
+  state = {
+    cart: JSON.parse(localStorage.getItem('shopping-cart')),
+    quantity: '',
   }
+clearCart = () => {
+  localStorage.clear()
+  window.location = '/cart'
 }
+
+handleChange = (e, i) => {
+  let inputValue = e.target.value;
+  this.setState(prevState => {
+    let quantity = [...prevState.quantity];
+    quantity[i] = {quantity: inputValue} 
+    return {quantity}
+
+  })
+};
+
+
+
+  render (){
+    if ((this.state.cart == null) || (this.state.cart == [])) {
+      return (
+        <EmptyCart />
+      )} else {
+        return (
+          <div className="shopCart">
+            <h1>Cart</h1>
+            <h3>You selected really nice items. Now it's time to check out your order below:</h3>
+            <div className="items"> {this.state.cart.map ((item, i) => {
+              return <div className="item" key={i}> 
+              <h3>{item.name}</h3>
+              <img className='imgcart' src= {item.image} alt ="nice_cosmetics"/>
+              <div className="price">Price: {item.price}€</div>
+              <div className="quantity">Quantity: </div>
+              <input onChange = {e => this.handleChange(e, i)} type="number" min="1" step="1"/>
+              <button>🗑️</button>
+              </div>
+              
+            })
+           
+            }
+    
+            </div>  
+             <Total 
+             items = {this.state.cart} 
+             quantity = {this.state.quantity} 
+             />
+            <div><button onClick={this.clearCart}>Clear cart!</button></div>             
+           
+          
+          </div>
+        )
+     
+    }
+  }
+
+}
+
+
 export default Cart
+

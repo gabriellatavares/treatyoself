@@ -9,10 +9,24 @@ body {
 	width: 100%;
 	height: 10vh;
 	background-color: black;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+footer {
+	background-color:rgb(65, 65, 65);
+	display: grid;
+  grid-template-columns: repeat(3, 1fr);
+	gap: 1em;
+	font-size: 1.5vh;
+	width: 100%;
+	height: 10vh;
+}
+
+footer:last-child p {
+	align-items: center;
+}
+
 
 .form_container {
 	width: 30%;
@@ -77,3 +91,23 @@ button {
   text-align: initial;
 }
 
+.shopCart {
+  margin: 50px;
+}
+.items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.item {
+  padding: 20px 50px;
+  text-align: center;
+  border-radius: 5%;
+}
+
+.imgcart {
+	width:  50%;
+	height: 50%;
+	object-fit: cover;
+}
