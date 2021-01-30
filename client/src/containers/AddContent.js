@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
 const AddContent = (props) => {
-  const [cart, setCart] = useState(cartFromLocalStorage)
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart') || '[]'))
 
   useEffect(() => {
     const data = localStorage.getItem("shopping-cart");
@@ -16,17 +15,26 @@ const AddContent = (props) => {
 
 return (
   <div>
-    <button onClick={() => setCart ([
-      {
-        name: props.name,
-        id: props._id,
-        price: props.price,
-        image: props.image,
-      },
-      ...cart
-    ])
-
-    }>
+    <button onClick={() => {
+      let inThere = false;
+      for(var ele of cart){
+        if (ele.name === props.name){
+          inThere = true;
+          alert('Item is already in the cart! If you want to purchase more than one, you can change the quantity on the check-out.')
+        } 
+      } 
+      if (inThere === false){
+        setCart ([
+          {
+            name: props.name,
+            id: props._id,
+            price: props.price,
+            image: props.image,
+          },
+          ...cart
+        ])
+      }
+    }}>
       Let's shop!</button>
 
  </div> 

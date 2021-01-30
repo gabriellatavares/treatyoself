@@ -9,10 +9,7 @@ class Cart extends React.Component {
     cart: JSON.parse(localStorage.getItem('shopping-cart')),
     quantity: '',
   }
-clearCart = () => {
-  localStorage.clear()
-  window.location = '/cart'
-}
+
 
 handleChange = (e, i) => {
   let inputValue = e.target.value;
@@ -23,11 +20,25 @@ handleChange = (e, i) => {
 
   })
 };
+ deleteItem(index){
+   this.setState((prevState) => ({
+     cart: prevState.cart.filter((_, i) => i !== index)
+      })
+    )
+      let teste = []
+      teste = JSON.parse(localStorage.getItem('shopping-cart'))
+      teste.splice(index, 1)
+      localStorage.setItem('shopping-cart', JSON.stringify(teste))
+      window.location.reload(); 
+
+ }
+
+
 
 
 
   render (){
-    if ((this.state.cart == null) || (this.state.cart == [])) {
+    if (this.state.cart.length === 0) {
       return (
         <EmptyCart />
       )} else {
@@ -42,9 +53,11 @@ handleChange = (e, i) => {
               <div className="price">Price: {item.price}€</div>
               <div className="quantity">Quantity: </div>
               <input onChange = {e => this.handleChange(e, i)} type="number" min="1" step="1"/>
-              <button>🗑️</button>
+              <button onClick={()=>{
+                this.deleteItem(i)
+                }}>Remove here</button>
               </div>
-              
+            
             })
            
             }
@@ -53,9 +66,7 @@ handleChange = (e, i) => {
              <Total 
              items = {this.state.cart} 
              quantity = {this.state.quantity} 
-             />
-            <div><button onClick={this.clearCart}>Clear cart!</button></div>             
-           
+             />           
           
           </div>
         )

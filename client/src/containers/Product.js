@@ -38,7 +38,7 @@ class Product extends React.Component{
         <p>{product.description}</p>
         <p>{product.price}€</p>
         <AddContent
-        product_id = {product._id}
+        _id = {product._id}
         name = {product.name}
         price = {product.price}
         image = {product.image}/>

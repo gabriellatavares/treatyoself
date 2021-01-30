@@ -1,6 +1,13 @@
 import React from 'react';
+import EmptyCart from './Empty'
 
 class Total extends React.Component {
+
+  clearCart = () => {
+    localStorage.clear()
+    window.location = '/cart'
+  }
+
   render () {
     let total = 0;
     return (
@@ -15,7 +22,16 @@ class Total extends React.Component {
         return null;
       })
       }
-        <h2 className="total">Cart Total: {total.toFixed(2)}€</h2>
+          {
+          total === 0 ?
+           <EmptyCart /> :
+          <div> 
+              <h2>Cart Total: {total.toFixed(2)}€
+              <div><button onClick={this.clearCart}>Clear cart!</button></div>             
+              </h2>
+          </div>
+          }
+       
       </div>
     )
   }
