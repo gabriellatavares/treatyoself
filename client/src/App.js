@@ -6,7 +6,9 @@ import Login from './containers/Login.js';
 import Register from './containers/Register.js';
 import SecretPage from './containers/SecretPage.js';
 import Navbar from './components/Navbar.js';
-import Footer from './components/Footer.js'
+import Footer from './components/Footer.js';
+import About from './components/Aboutus'
+import Header from './components/Header'
 import { URL } from './config';
 import AddProduct from './containers/AddProduct'
 import DeleteProduct from './containers/DeleteProduct'
@@ -15,6 +17,8 @@ import Product from './containers/Product'
 import Products from './containers/Products'
 import Cart from './containers/Cart'
 import Checkout from './containers/Checkout'
+import PaymentError from './components/Failure'
+import PaymentSuccess from './components/Success'
 
 function App() {
 
@@ -50,7 +54,9 @@ function App() {
 	return (
 		<Router>
 			<Navbar />
+			{/* <Header /> */}
 			<Route exact path="/" component={Home} />
+			<Route exact path="/about" component={About} />
 			<Route
 				exact
 				path="/login"
@@ -64,6 +70,7 @@ function App() {
 				path="/secret-page"
 				render={(props) => (!isLoggedIn ? <Redirect to={'/'} /> : <SecretPage logout={logout} {...props} />)}
 			/>
+			
 			  <Route exact path = "/products" component = {Products}/>
         <Route exact path = "/product/:id" component = {Product}/>
 				<Route exact path = "/products/add" component = {AddProduct}/>
@@ -71,7 +78,16 @@ function App() {
 				<Route exact path = "/products/update" component = {UpdateProduct}/>
 				<Route exact path = "/cart" component = {Cart}/>
 				<Route exact path = "/payment" component = {Checkout}/>
-
+				<Route
+        exact
+        path="/payment/success"
+        render={props => <PaymentSuccess {...props} />}
+      	/>
+      	<Route
+        exact
+        path="/payment/error"
+        render={props => <PaymentError {...props} />}
+      	/>
 			<Footer isLoggedIn={isLoggedIn} />
 
 		</Router>

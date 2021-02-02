@@ -31,7 +31,7 @@ class Total extends React.Component {
            <EmptyCart /> :
           <div> 
               <h2>Cart Total: {total.toFixed(2)}€
-              <NavLink  to = {'/payment/'}><button>Proceed to checkout</button></NavLink>
+              <NavLink  to = {'/payment'}><button>Proceed to checkout</button></NavLink>
 </h2>              
               <div><button onClick={this.clearCart}>Clear cart!</button></div>
 

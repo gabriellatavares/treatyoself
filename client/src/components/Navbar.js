@@ -17,9 +17,13 @@ class Navbar extends React.Component {
 		
 	return(
 	<div className="navbar">
+		
 		<NavLink exact style={styles.default} activeStyle={styles.active} to={'/'}>
 			Home
 		</NavLink>
+		<NavLink exact style={styles.default} activeStyle={styles.active} to={'/about'}>
+			About us
+			</NavLink>
 		<NavLink exact style={styles.default} activeStyle={styles.active} to={'/cart'}>
 			 Cart: {this.state.counter}
 		</NavLink>
