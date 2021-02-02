@@ -2,7 +2,6 @@ import React from "react";
 import EmptyCart from './Empty'
 import Total from './Total'
 
-
 class Cart extends React.Component {
 
   state = {
@@ -29,7 +28,10 @@ handleChange = (e, i) => {
       teste = JSON.parse(localStorage.getItem('shopping-cart'))
       teste.splice(index, 1)
       localStorage.setItem('shopping-cart', JSON.stringify(teste))
-      window.location.reload(); 
+      window.location.reload();
+      let counter = localStorage.getItem('count')
+      let counter2 = counter - 1
+      localStorage.setItem('count', JSON.stringify(counter2));
 
  }
 
@@ -55,7 +57,7 @@ handleChange = (e, i) => {
               <input onChange = {e => this.handleChange(e, i)} type="number" min="1" step="1"/>
               <button onClick={()=>{
                 this.deleteItem(i)
-                }}>Remove here</button>
+                }}>X</button>
               </div>
             
             })

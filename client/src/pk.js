@@ -1,0 +1,3 @@
+const pk_test = 'pk_test_51IG1VOEezwxOFQkNsF7mQG99GvZ7NzWxzVprkT35YvKrMAg1wKrTYSBNM5nmgaXCf1D4HxkLsinewnu2nlKXAbdX00UbaGajE5';
+
+export default pk_test;

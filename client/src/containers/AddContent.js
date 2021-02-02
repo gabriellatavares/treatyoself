@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react'
-const AddContent = (props) => {
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart') || '[]'))
 
+
+const AddContent = (props) => {
+  
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart') || '[]'))
+  
+  
   useEffect(() => {
     const data = localStorage.getItem("shopping-cart");
     if (data) {
-      setCart(JSON.parse(data));
+      setCart(JSON.parse(data));      
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem('shopping-cart', JSON.stringify(cart))
-})
+    let count = cart.length
+    localStorage.setItem('count', JSON.stringify(count))
+  })
 
 return (
   <div>
@@ -33,8 +39,12 @@ return (
           },
           ...cart
         ])
+        
       }
-    }}>
+      
+    }
+    
+    }>
       Let's shop!</button>
 
  </div> 

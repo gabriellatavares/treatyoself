@@ -14,12 +14,12 @@ import UpdateProduct from './containers/UpdateProduct'
 import Product from './containers/Product'
 import Products from './containers/Products'
 import Cart from './containers/Cart'
+import Checkout from './containers/Checkout'
 
 function App() {
 
 	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-
-
+	
 
 	const token = JSON.parse(localStorage.getItem('token'));
 
@@ -70,7 +70,10 @@ function App() {
 				<Route exact path = "/products/delete/:id" component = {DeleteProduct}/>
 				<Route exact path = "/products/update" component = {UpdateProduct}/>
 				<Route exact path = "/cart" component = {Cart}/>
+				<Route exact path = "/payment" component = {Checkout}/>
+
 			<Footer isLoggedIn={isLoggedIn} />
+
 		</Router>
 	);
 }

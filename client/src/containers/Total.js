@@ -1,11 +1,14 @@
 import React from 'react';
 import EmptyCart from './Empty'
+import { NavLink } from 'react-router-dom'
 
 class Total extends React.Component {
 
   clearCart = () => {
-    localStorage.clear()
+    localStorage.setItem('shopping-cart', JSON.stringify([]))
     window.location = '/cart'
+    localStorage.setItem('amount', JSON.stringify(0));
+    localStorage.setItem('count', JSON.stringify(0));
   }
 
   render () {
@@ -19,6 +22,7 @@ class Total extends React.Component {
         quantity = quantity.quantity
         }    
         total += this.props.items[i].price * quantity
+        localStorage.setItem('amount', total);
         return null;
       })
       }
@@ -27,11 +31,12 @@ class Total extends React.Component {
            <EmptyCart /> :
           <div> 
               <h2>Cart Total: {total.toFixed(2)}€
-              <div><button onClick={this.clearCart}>Clear cart!</button></div>             
-              </h2>
+              <NavLink  to = {'/payment/'}><button>Proceed to checkout</button></NavLink>
+</h2>              
+              <div><button onClick={this.clearCart}>Clear cart!</button></div>
+
           </div>
           }
-       
       </div>
     )
   }

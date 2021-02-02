@@ -11,6 +11,8 @@
   "comment": "jsonwebtoken ",
   "license": "ISC",
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.2.1",
+    "@stripe/stripe-js": "^1.11.0",
     "argon2": "^0.19.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -18,6 +20,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.3",
+    "stripe": "^8.132.0",
     "validator": "^12.1.0"
   }
 }
