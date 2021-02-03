@@ -5,10 +5,8 @@ import { NavLink } from 'react-router-dom';
 class Navbar extends React.Component {	
 	constructor(props){
 		super(props)
-		this.state = {
-			counter: localStorage.getItem('count')
-		}
-		console.log(this.state)
+
+		console.log(this.props.counter)
 	}
 
 	render(){
@@ -23,7 +21,7 @@ class Navbar extends React.Component {
 			About us
 			</NavLink>
 		<NavLink exact style={styles.default} activeStyle={styles.active} to={'/cart'}>
-			 Cart: {this.state.counter}
+			 Cart: {this.props.counter}
 		</NavLink>
 
 	</div>

@@ -23,7 +23,7 @@ import PaymentSuccess from './components/Success'
 function App() {
 
 	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-	const [ counter, setCounter ] = useState(0)
+	let counter = localStorage.getItem('count')
 	
 	
 	const token = JSON.parse(localStorage.getItem('token'));
@@ -54,8 +54,7 @@ function App() {
 	};
 	return (
 		<Router>
-			<Route path='/' render={(props)=> <Navbar props={counter} {...props} /> }  />
-			{/* <Header /> */}
+			<Route path='/' render={(props)=> <Navbar counter={counter} {...props} /> }  />			{/* <Header /> */}
 			<Route exact path="/" component={Home} />
 			<Route exact path="/about" component={About} />
 			<Route
