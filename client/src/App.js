@@ -23,8 +23,9 @@ import PaymentSuccess from './components/Success'
 function App() {
 
 	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+	const [ counter, setCounter ] = useState(0)
 	
-
+	
 	const token = JSON.parse(localStorage.getItem('token'));
 
 	const verify_token = async () => {
@@ -53,7 +54,7 @@ function App() {
 	};
 	return (
 		<Router>
-			<Navbar />
+			<Route path='/' render={(props)=> <Navbar props={counter} {...props} /> }  />
 			{/* <Header /> */}
 			<Route exact path="/" component={Home} />
 			<Route exact path="/about" component={About} />

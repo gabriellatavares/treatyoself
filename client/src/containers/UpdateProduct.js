@@ -41,7 +41,7 @@ class UpdateProduct extends React.Component {
   }
   render(){
     return (
-      <div>
+      <div className='shortComp'>
         <h1>Update a product:</h1>
         <form onSubmit={this.handleSubmit}>
           <input type='text' name='id' onChange={this.handleChange} placeholder='product id'/>

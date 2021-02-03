@@ -35,7 +35,8 @@ const Register = (props) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} onChange={handleChange} className="form_container">
+		<form onSubmit={handleSubmit} onChange={handleChange} className="form_container shortComp">
+			<h1>Register</h1>
 			<label>Email</label>
 			<input name="email" />
 

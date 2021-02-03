@@ -4,8 +4,10 @@ import {NavLink} from 'react-router-dom';
 const Footer = ({isLoggedIn}) => (
       <footer>
      
-        <div><p>About us!</p>
-          <span>Future link here</span>
+        <div><p>Want to learn more about us?</p>
+				<NavLink exact style={styles.default} activeStyle={styles.active} to={'/about'}>
+					About us
+				</NavLink>
         </div>
         <div><p>Copyright © 2021 — Web Cosmetics | Treat yo self!</p></div>
         <div><p>

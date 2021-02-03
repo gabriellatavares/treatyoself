@@ -38,7 +38,6 @@ footer:last-child p {
 	margin: 10vh 35%;
 	display: flex;
 	flex-direction: column;
-	border: 1px solid gray;
 	padding: 2%;
 	border-radius: 5px;
 }
@@ -54,7 +53,7 @@ button {
    margin: 5% 0;
    outline: none;
 }
-.EmptyCart, .paymentSuccess, .paymentFail {
+.EmptyCart, .paymentSuccess, .paymentFail, .shortComp {
   height: 80vh;
 }
 
@@ -312,3 +311,6 @@ button {
 }
 
 
+.textAlign {
+  padding: 4em;
+}

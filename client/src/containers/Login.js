@@ -33,8 +33,9 @@ const Login = (props) => {
 		}
 	};
 	return (<>
-	<h1>Login here:</h1>
-		<form onSubmit={handleSubmit} onChange={handleChange} className="form_container">
+	
+		<form onSubmit={handleSubmit} onChange={handleChange} className="form_container shortComp">
+			<h1>Login here:</h1>
 			<label>Email</label>
 			<input name="email" />
 			<label>Password</label>

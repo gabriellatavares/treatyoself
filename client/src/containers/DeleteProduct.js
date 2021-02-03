@@ -31,7 +31,7 @@ handleSubmit = event => {
 
 render(){
   return (
-    <div>
+    <div className='shortComp'>
       <form onSubmit={this.handleSubmit}>
         <label>
           Product ID: 

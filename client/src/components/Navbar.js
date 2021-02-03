@@ -3,14 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 
 class Navbar extends React.Component {	
-	
-	state = {
-		counter: 0,
-	}
-	componentDidMount(){
-		this.setState({
+	constructor(props){
+		super(props)
+		this.state = {
 			counter: localStorage.getItem('count')
-		})
+		}
+		console.log(this.state)
 	}
 
 	render(){
