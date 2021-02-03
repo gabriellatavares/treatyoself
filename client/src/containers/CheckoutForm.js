@@ -2,6 +2,7 @@ import React from 'react'
 import Axios from 'axios';
 import { URL } from '../config';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
+import image from '../images/Payment.png'
 
  const CheckoutForm = () => {
 
@@ -43,13 +44,19 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
     }
   }
   return (
-    <div>
-    <form className="checkout_container" onSubmit={handleSubmit} style={{ maxWidth: 400 }}>
-      <h1>Complete your order!</h1>
-      <CardElement />
-      <button>Pay {localStorage.getItem('amount')}€</button>
-    </form>
+    <>
+    <h1>Complete your payment here</h1>
+    <div>     
+          <div>
+              <img className='payImg' src={image} alt="online-payment"/>
+          </div> 
+    <form className="checkout_container" onSubmit={handleSubmit} >
+      <CardElement />            
+      <button className='payUs bigger'>Pay {localStorage.getItem('amount')}€</button>
+      </form>
+  
     </div>
+    </>
   )
 }
 export default CheckoutForm;

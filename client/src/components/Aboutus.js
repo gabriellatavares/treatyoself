@@ -5,17 +5,15 @@ import image from '../images/Treatyoself.png'
 const About = () => {
   return (
     <div> 
-      <h1>Treat yo self store</h1>
       <div className='about'>
         <div>
         <img id='aboutImg'
         src={image} alt="girl with shopping cart"/> 
-        <h3>Three words for you: Treat. Yo. Self.</h3>
         </div>
       
           <div className='textAlign'>
-            <h2>The act of treating ones self to something that relaxes them or that they enjoy</h2>
-          <p>♪ Treat yourself 2011. ♪ </p>
+            <h1>The act of treating ones self to something that relaxes them or that they enjoy</h1>
+            <h3>Three words for you: Treat. Yo. Self.</h3>
           <p> A term that originated in popular NBC television show Parks and Recreation, 
             when Tom and Donna two financially self destructive adults that work in the
              Parks and Rec. Department of Pawnee, Indiana decide to spend an entire day pampering and spoiling themselves. 
@@ -28,7 +26,7 @@ const About = () => {
                 "Treat Yo Self" 
                 </p>
 
-          <p>♪ The best day of the year ♪.</p></div>
+          </div>
         
       </div>
       </div>

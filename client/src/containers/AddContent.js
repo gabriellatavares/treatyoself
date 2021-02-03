@@ -17,10 +17,11 @@ const AddContent = (props) => {
     localStorage.setItem('shopping-cart', JSON.stringify(cart))
     let count = cart.length
     localStorage.setItem('count', JSON.stringify(count))
+    props.setCounter(count)// <================== 
   })
 
 return (
-  <div>
+  <div className='addtocart'>
     <button onClick={() => {
       let inThere = false;
       for(var ele of cart){
@@ -45,9 +46,10 @@ return (
     }
     
     }>
-      Let's shop!</button>
+      Add to cart! <i className="fas fa-cart-plus"></i></button>
 
  </div> 
  )
 }
 export default AddContent
+

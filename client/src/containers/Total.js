@@ -4,13 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 class Total extends React.Component {
 
-  clearCart = () => {
-    localStorage.setItem('shopping-cart', JSON.stringify([]))
-    window.location = '/cart'
-    localStorage.setItem('amount', JSON.stringify(0));
-    localStorage.setItem('count', JSON.stringify(0));
-  }
-
+ 
   render () {
     let total = 0;
     return (
@@ -30,11 +24,10 @@ class Total extends React.Component {
           total === 0 ?
            <EmptyCart /> :
           <div> 
-              <h2>Cart Total: {total.toFixed(2)}€
-              <NavLink  to = {'/payment'}><button>Proceed to checkout</button></NavLink>
-</h2>              
-              <div><button onClick={this.clearCart}>Clear cart!</button></div>
+              <h2 className='clear'>Cart Total: {total.toFixed(2)}€ </h2>
+              <NavLink  to = {'/payment'}><button className='payUs bigger'>Proceed to checkout</button></NavLink>  
 
+              
           </div>
           }
       </div>

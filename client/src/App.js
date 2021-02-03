@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import Home from './containers/Home.js';
 import Login from './containers/Login.js';
 import Register from './containers/Register.js';
@@ -23,8 +23,9 @@ import PaymentSuccess from './components/Success'
 function App() {
 
 	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-	let counter = localStorage.getItem('count')
-	
+
+	let counter = localStorage.getItem('count');
+	const [count, setCounter] = useState(localStorage.getItem('count'));
 	
 	const token = JSON.parse(localStorage.getItem('token'));
 
@@ -53,8 +54,12 @@ function App() {
 		setIsLoggedIn(false);
 	};
 	return (
+	<>
 		<Router>
-			<Route path='/' render={(props)=> <Navbar counter={counter} {...props} /> }  />			{/* <Header /> */}
+			<Route path='/' render={(props)=> <Navbar counter={counter} {...props} /> }  />			
+			<Switch>
+				<Route exact path='/' component={Header} />
+			</Switch>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/about" component={About} />
 			<Route
@@ -72,7 +77,7 @@ function App() {
 			/>
 			
 			  <Route exact path = "/products" component = {Products}/>
-        <Route exact path = "/product/:id" component = {Product}/>
+				<Route exact path = "/product/:id" render = {props => <Product {...props} setCounter={setCounter}/>}/>
 				<Route exact path = "/products/add" component = {AddProduct}/>
 				<Route exact path = "/products/delete/:id" component = {DeleteProduct}/>
 				<Route exact path = "/products/update" component = {UpdateProduct}/>
@@ -91,6 +96,7 @@ function App() {
 			<Footer isLoggedIn={isLoggedIn} />
 
 		</Router>
+		</>
 	);
 }
 

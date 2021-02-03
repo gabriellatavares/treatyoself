@@ -1,11 +1,25 @@
 import React from 'react'
-    //idea for quote https://codepen.io/jupago/pen/GPxqLX
+import image from '../images/Shop.png'
 
 const Header = () => (
+  <div className='frontPage'>
+    <img src={image} alt="shopping-from-home" />
+  <div className="blockquote-wrapper">
+  <div className="blockquote">
+    <h1> Three words for you:
+      <span style={styles.trial}>Treat yo self</span>.
+     </h1>
+    <h4><em>This web project was made with React, React Hooks, Axios, Express, 
+      MongoDB, Local Storage and Stripe.</em></h4>
+  </div>
   
-  <section>
+</div>
 
-    Future header here
-  </section>
+</div>
 )
 export default Header;
+const styles = {
+  trial: {
+  color: '#e99f4c'
+}
+}

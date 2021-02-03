@@ -1,23 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
 body {
   margin: 0;
   padding: 0;
 	font-family: 'Merriweather', serif;
   text-align: center;
   height: 100vh;
+  background-color: #f2ebe9;
+  color: #264143;
 }
 
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+a:visited {
+  color: #264143;
+}
+
+a:hover {
+  color: #e99f4c;
+}
 .navbar {
 	width: 100%;
 	height: 10vh;
-	background-color: black;
+  background-color: #eddcd9;
+  color: #264143;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+h1 {
+  font-family: 'Abril Fatface', cursive;
+}
 
 footer {
-	background-color:rgb(65, 65, 65);
+  background-color: #264143;
+  color: #eddcd9;
 	display: grid;
   grid-template-columns: repeat(3, 1fr);
 	gap: 1em;
@@ -31,6 +52,7 @@ footer {
 footer:last-child p {
 	align-items: center;
 }
+
 
 
 .form_container {
@@ -47,11 +69,18 @@ label , input {
 }
 
 button {
-   background-color: #4da6ff;
+   background-color: #db9c9e;
+   font-family: 'Merriweather', serif;
    color: white;
    font-size: 1em;
    margin: 5% 0;
    outline: none;
+   border-color: #f5f4ee;
+   border-radius: 5px;
+}
+
+.delete {
+  background-color: #ba3825;
 }
 .EmptyCart, .paymentSuccess, .paymentFail, .shortComp {
   height: 80vh;
@@ -71,23 +100,51 @@ button {
 	justify-content: center;
 }
 
+.price {
+  font-size: 1em;
+}
+
 .productGrid {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	grid-gap: 1em;
-	padding: 70px;
+  padding: 70px;
+  
+
+}
+.frontPage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: center;
+  padding: 3em;
+
+}
+.addtocart {
+  text-align: right;
+}
+#root > div.grid2 > div.descrip > p:nth-child(3){
+  font-size: 5vh;
+  text-align: right;
+}
+
+.frontPage > img {
+  width: 80%;
 
 }
 .about {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 3em;
-  min-height: calc(100vh - 15vh);
+  /* min-height: calc(100vh - 15vh); */
   padding: 3em;
 
 }
 #aboutImg {
   width: 70%;
+}
+
+.payImg {
+  width: 50%;
 }
 .allProducts {
 	width:  50%;
@@ -101,10 +158,11 @@ button {
 
 .grid2 {
 	display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: calc(100vh - 15vh);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 5em;
   
 }
+
 
 .descrip {
 	padding: 100px;
@@ -113,25 +171,36 @@ button {
 
 .shopCart {
   margin: 50px;
+  
 }
-.items {
+
+
+ .items {
+  
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1em;
-}
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+} 
 
 .item {
   padding: 20px 50px;
   text-align: center;
-  border-radius: 5%;
+  border-radius: 5%; 
+
+
 }
 
 .imgcart {
-	width:  50%;
-	height: 50%;
+	width:  40%;
+	height: 60%;
 	object-fit: cover;
 }
-
+#root > div.shopCart > div:nth-child(4) > div > h2 {
+  margin: 0;
+  align-items: center;
+}
+.bigger {
+  font-size: 3vh;
+}
 @keyframes fade {
   from {
     opacity: 0;
@@ -216,6 +285,10 @@ button {
   padding: 11px 15px 11px 0;
 }
 
+.payUs {
+  background-color: #2a9d8f;
+}
+
 .SubmitButton {
   display: block;
   font-size: 16px;
@@ -298,6 +371,9 @@ button {
   text-align: center;
 }
 
+.clear {
+  text-align: right;
+}
 .ResetButton {
   border: 0;
   cursor: pointer;
@@ -313,4 +389,75 @@ button {
 
 .textAlign {
   padding: 4em;
+}
+
+/* center the blockquote in the page */
+.blockquote-wrapper {
+  display: flex;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+/* Blockquote main style */
+.blockquote {
+   position: relative;
+   max-width: 620px;
+   margin: 80px auto;
+   align-self: center;
+}
+
+/* Blockquote header */
+.blockquote h1 {
+   font-family: 'Abril Fatface', cursive;
+   position: relative; /* for pseudos */
+   color: #264143;
+   font-size: 2.8rem;
+   font-weight: normal;
+   line-height: 1;
+   margin: 0;
+   border: 2px solid #fff;
+   border: solid 2px;
+   border-radius:20px;
+   padding: 25px;
+}
+
+
+
+.blockquote h1:before {
+   position: absolute;
+   width: 80px;
+   border: 6px solid;
+   bottom: -3px;
+   left: 50px;
+   z-index: 2;
+}
+
+/* increase header size after 600px */
+@media all and (min-width: 600px) {
+   .blockquote h1 {
+       font-size: 3rem;
+       line-height: 1.2;
+  }
+
+}
+
+/* Blockquote subheader */
+.blockquote h4 {
+   position: relative;
+   color: #264143;
+   font-size: 1.3rem;
+   font-weight: lighter;
+   line-height: 1.2;
+   margin: 0;
+   padding-top: 15px;
+   z-index: 1;
+   margin-left:150px;
+   padding-left:12px;
+   text-align: right;
+   font-size: small;
+}
+
+
+.blockquote h4:first-letter {
+ margin-left:-12px;
 }

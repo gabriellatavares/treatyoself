@@ -9,7 +9,13 @@ const Footer = ({isLoggedIn}) => (
 					About us
 				</NavLink>
         </div>
-        <div><p>Copyright © 2021 — Web Cosmetics | Treat yo self!</p></div>
+        <div><p>Copyright © 2021 — Web Cosmetics | Treat yo self!</p>
+				<i className="fab fa-facebook"></i>
+				<span>    </span>
+				<i className="fab fa-twitter"></i>
+				<span>    </span>
+				<i className="fab fa-instagram"></i>
+				</div>
         <div><p>
         	<NavLink exact style={styles.default} activeStyle={styles.active} to={'/secret-page'}>
 		      	Admin Page
@@ -32,10 +38,10 @@ const Footer = ({isLoggedIn}) => (
 export default Footer;
 const styles = {
 	active: {
-		color: 'gray'
+		color: '#e99f4c'
 	},
 	default: {
 		textDecoration: 'none',
-		color: 'white'
+		color: '#eddcd9'
 	}
 };

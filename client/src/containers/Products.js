@@ -35,9 +35,9 @@ class Products extends React.Component {
            <div key = {idx}>
              <NavLink to = {`/product/${product._id}`}>
                <img className='allProducts' src={product.image} alt='product'></img>
-                <h3>{product.name}</h3>
+                <h3>{product.name}</h3>{product.price} €
              </NavLink>      
-             <p>{product.price} €</p>
+             <p></p>
            </div>
          );
          })) : (<h2>Product Loading</h2>)
