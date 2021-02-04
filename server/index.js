@@ -25,11 +25,21 @@ mongoose.set('useCreateIndex', true)
 const cors = require('cors');
 app.use(cors());
 
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+
+	next();
+});
+
 require("dotenv").config({ path: "./.env" });
 
 // =============== ROUTES ==============================
 app.use('/admin', require('./routes/admin.routes'));
 app.use('/products', require('./routes/products.route'));
 app.use('/payment', require('./routes/payment.route'))
+app.use('/emails', require('./routes/email.route.js'));
+
 // =============== START SERVER =====================
 app.listen(port, () => console.log(`server listening on port ${port}`));

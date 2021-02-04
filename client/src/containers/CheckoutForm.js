@@ -1,16 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Axios from 'axios';
 import { URL } from '../config';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import image from '../images/Payment.png'
 
  const CheckoutForm = () => {
+ 
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+
+  let handleName = (e) => { setName({ name: e.target.value })}
+  let handleEmail = (e) => { setEmail( {email: e.target.value})}
+
+
 
   const stripe = useStripe()
   const elements = useElements()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+      const response = await Axios.post(`${URL}/emails/send_email`, {
+        name: name.name,
+        email: email.email,
+      })
+      console.log('==>', response)
+      setEmail({
+        email: '',
+      })
+      setName({
+        name: '',
+      })
+    } 
+    catch(error){
+      console.log(error)
+    } 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elements.getElement(CardElement),
@@ -51,7 +75,11 @@ import image from '../images/Payment.png'
               <img className='payImg' src={image} alt="online-payment"/>
           </div> 
     <form className="checkout_container" onSubmit={handleSubmit} >
-      <CardElement />            
+    <div style={styles.form}> 
+  <input style={styles.input} placeholder='Please enter your name' type="text" size="30" required onChange = {handleName}></input>
+  <input style={styles.input} placeholder='Please enter your e-mail here to complete the order' type="email" id="email" size="30" required onChange = {handleEmail}></input>
+     </div>
+   <CardElement />          
       <button className='payUs bigger'>Pay {localStorage.getItem('amount')}€</button>
       </form>
   
@@ -60,3 +88,21 @@ import image from '../images/Payment.png'
   )
 }
 export default CheckoutForm;
+
+
+const styles = {
+  input: {
+    display: 'flex',
+    alignItems: 'left',
+    width: '100%',
+    background: 'transparent',
+    border: 'none',
+    fontSize: '90%',
+    alignText: 'center'
+  },
+  form: {
+   display: 'flex',
+   alignItems: 'center',
+   justifyContent: 'space-evenly'
+  }
+}

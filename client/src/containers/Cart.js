@@ -81,6 +81,7 @@ handleChange = (e, i) => {
              quantity = {this.state.quantity} 
              />           
                       <div className='clear'><button className='delete' onClick={this.clearCart}>Clear cart!</button></div> 
+                      
 
           </div>
         )

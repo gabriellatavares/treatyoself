@@ -27,7 +27,7 @@ class Navbar extends React.Component {
 	
 		<NavLink exact style={styles.default} activeStyle={styles.active} to={'/cart'}>
 		<i className="fas fa-shopping-cart"></i> <span></span> 
-		Cart	{this.props.counter}	 
+		Cart {this.props.counter}	 
 		</NavLink>
 
 	</div>
@@ -43,7 +43,8 @@ const styles = {
 	},
 	default: {
 		textDecoration: 'none',
-		color: '#264143'
+		color: '#264143',
+		fontSize: '90%'
 	}
 };
 

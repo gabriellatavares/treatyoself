@@ -4,7 +4,8 @@ const PaymentSuccess = props => {
   return (
       <div className='paymentSuccess'>
         <h1>Your payment has been succesfully made!<span role='img'>🥳</span></h1>
-        <p>Your order will be sent to you in a few working days!</p>
+        <p>Please check your e-mail for more information.
+        Your order will be sent to you in a few working days!</p>
       </div>
   );
 };

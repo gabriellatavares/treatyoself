@@ -320,6 +320,9 @@ button {
   transform: scale(0.99) translateY(15px);
 }
 
+input[id="email"] {  
+  text-align: right; 
+} 
 .SubmitButton:disabled {
   opacity: 0.5;
   cursor: default;
