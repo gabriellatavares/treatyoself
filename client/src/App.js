@@ -19,6 +19,7 @@ import Cart from './containers/Cart'
 import Checkout from './containers/Checkout'
 import PaymentError from './components/Failure'
 import PaymentSuccess from './components/Success'
+import Contact from './components/Contactus'
 
 function App() {
 
@@ -93,6 +94,7 @@ function App() {
         path="/payment/error"
         render={props => <PaymentError {...props} />}
       	/>
+				<Route exact path = '/contact' component={Contact}/>
 			<Footer isLoggedIn={isLoggedIn} />
 
 		</Router>

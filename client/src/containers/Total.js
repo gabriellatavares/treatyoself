@@ -12,6 +12,7 @@ class Total extends React.Component {
         let quantity = this.props.quantity[i]
         if (quantity === undefined){
           quantity = 1;
+          
         } else {       
         quantity = quantity.quantity
         }    

@@ -45,8 +45,8 @@ footer {
 	font-size: 1.5vh;
   height: 5vh;
   padding: 2em;
-  margin-bottom: 2em;
-  
+  padding-bottom: 5%;
+    
 }
 
 footer:last-child p {
@@ -107,9 +107,6 @@ button {
 .productGrid {
 	display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-	grid-gap: 1em;
-  padding: 70px;
-  
 
 }
 .frontPage {

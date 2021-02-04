@@ -4,9 +4,9 @@ import {NavLink} from 'react-router-dom';
 const Footer = ({isLoggedIn}) => (
       <footer>
      
-        <div><p>Want to learn more about us?</p>
-				<NavLink exact style={styles.default} activeStyle={styles.active} to={'/about'}>
-					About us
+        <div><p>Have a question?</p>
+				<NavLink exact style={styles.bolder} activeStyle={styles.active} to={'/contact'}>
+				Contact us
 				</NavLink>
         </div>
         <div><p>Copyright © 2021 — Web Cosmetics | Treat yo self!</p>
@@ -43,5 +43,11 @@ const styles = {
 	default: {
 		textDecoration: 'none',
 		color: '#eddcd9'
+	},
+	bolder: {
+		textDecoration: 'none',
+		color: '#eddcd9',
+		fontWeight: 'bold',
+		fontSize: '1em'
 	}
 };
