@@ -25,8 +25,7 @@ function App() {
 
 	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
 
-	let counter = localStorage.getItem('count');
-	const [count, setCounter] = useState(localStorage.getItem('count'));
+	const [counter, setCounter] = useState(localStorage.getItem('count'));
 	
 	const token = JSON.parse(localStorage.getItem('token'));
 

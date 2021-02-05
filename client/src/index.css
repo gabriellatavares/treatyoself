@@ -135,12 +135,11 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 3em;
-  /* min-height: calc(100vh - 15vh); */
   padding: 3em;
 
 }
 #aboutImg {
-  width: 70%;
+  width: 100%;
 }
 
 .payImg {
@@ -148,13 +147,12 @@ button {
 }
 .allProducts {
 	width:  50%;
-	height: 70%;
+	height: 300px;
 	object-fit: cover;
 }
 .oneProduct {
 	width: 70%;
-  height: 70%;
-	object-fit: cover;
+  height: auto;
 }
 
 .grid2 {

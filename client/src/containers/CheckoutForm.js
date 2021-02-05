@@ -37,6 +37,7 @@ import image from '../images/Payment.png'
       setName({
         name: '',
       })
+      console.log(response)
     } 
     catch(error){
     } 

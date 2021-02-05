@@ -5,7 +5,7 @@ class EmptyCart extends React.Component {
   render () {
       return (
          <div className='EmptyCart'>
-             <h2>Your cart is currently empty <span>🥺</span></h2>
+             <h2>Your cart is currently empty <span role='img' aria-label='sadface'>🥺</span></h2>
              <h4>Check-out our products <NavLink to = {`/products/`}>here</NavLink></h4>
            </div> 
       )

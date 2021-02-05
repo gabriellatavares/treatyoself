@@ -1,8 +1,8 @@
 import React from 'react'
-import image from '../images/Shop.png'
+import image from '../images/Treatyoself.png'
 
 const Header = () => (
-  <div className='frontPage'>
+  <div style={styles.height} className='frontPage' >
     <img src={image} alt="shopping-from-home" />
   <div className="blockquote-wrapper">
   <div className="blockquote">
@@ -21,5 +21,9 @@ export default Header;
 const styles = {
   trial: {
   color: '#e99f4c'
+},
+height: {
+  paddingBottom: '0px',
+ 
 }
 }

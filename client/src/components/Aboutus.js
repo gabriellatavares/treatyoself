@@ -1,15 +1,13 @@
 import React from "react";
 import '../index.css'
-import image from '../images/Treatyoself.png'
+import image from '../images/Shop.png'
+import { NavLink } from "react-router-dom";
 
 const About = () => {
   return (
     <div> 
       <div className='about'>
         <div>
-        <img id='aboutImg'
-        src={image} alt="girl with shopping cart"/> 
-        </div>
       
           <div className='textAlign'>
             <h1>The act of treating ones self to something that relaxes them or that they enjoy</h1>
@@ -25,12 +23,26 @@ const About = () => {
                 "Fine leather goods"
                 "Treat Yo Self" 
                 </p>
+                <p style={style.font}>Do you have any doubs? <NavLink style={style.link} to={'/contact'}>Contact us!</NavLink> </p>
 
           </div>
         
       </div>
+      <img id='aboutImg'
+        src={image} alt="girl with shopping cart"/> 
+        </div>
       </div>
   );
 };
 
 export default About;
+
+const style = {
+  font: {
+    fontFamily: 'Abril Fatface',
+    fontSize: '25px'
+  },
+  link: {
+    textDecoration: 'underline'
+  }
+}
