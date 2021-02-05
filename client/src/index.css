@@ -14,6 +14,9 @@ a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
 }
+a {
+  color: #2a9d8f;
+}
 
 a:visited {
   color: #264143;
@@ -150,7 +153,8 @@ button {
 }
 .oneProduct {
 	width: 70%;
-  height: auto;
+  height: 70%;
+	object-fit: cover;
 }
 
 .grid2 {

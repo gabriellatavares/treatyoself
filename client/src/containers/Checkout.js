@@ -8,13 +8,14 @@ const PUBLICK_KEY = 'pk_test_51IG1VOEezwxOFQkNsF7mQG99GvZ7NzWxzVprkT35YvKrMAg1wK
 
 const stripeTestPromise = loadStripe(PUBLICK_KEY)
 
-const Checkout = () => {
+const Checkout = (props) => {
+  let stockUpdate = props.location.state
   return (
     <div>
 
 
     <Elements stripe={stripeTestPromise}>
-      <CheckoutForm />
+      <CheckoutForm stockUpdate={stockUpdate}/>
     </Elements>
     </div>
   )

@@ -10,8 +10,6 @@ class Contact extends React.Component {
     }
   }
   handleSubmit(e){
-    var that = this;
-    var subject = 'Here is the message: ' 
     e.preventDefault();
     const nameInput = e.target.elements.name;
     const emailInput = e.target.elements.email;

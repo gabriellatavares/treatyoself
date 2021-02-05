@@ -37,9 +37,12 @@ return (
             id: props._id,
             price: props.price,
             image: props.image,
+            description: props.description,
+            stock: props.stock,
           },
           ...cart
         ])
+        
         
       }
       

@@ -40,6 +40,8 @@ class Product extends React.Component{
         name = {product.name}
         price = {product.price}
         image = {product.image}
+        description = {product.description}
+        stock = {product.stock}
         setCounter = {this.props.setCounter}/>
         </div>
       </div>
