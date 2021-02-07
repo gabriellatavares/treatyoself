@@ -101,7 +101,7 @@ import image from '../images/Payment.png'
 
         const stocking  = async () => {
         try {
-          await Axios.post(`${URL}/products/update`, {
+          await Axios.post(`${URL}/api/products/update`, {
             _id: sameId,
             nameUp: name,
             imageUp: image,

@@ -22,7 +22,7 @@ class AddProduct extends React.Component {
     e.preventDefault();
     const { name, image, description, price, stock } = this.state;
     try {
-      const response = await Axios.post(`${URL}/products/add`, {
+      const response = await Axios.post(`${URL}/api/products/add`, {
         name: name,
         image: image,
         description: description,
