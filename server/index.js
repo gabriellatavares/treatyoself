@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const path = require('path')
 const port = process.env.port || 3040;
 require('dotenv').config();
 // =============== BODY PARSER SETTINGS =====================
@@ -41,6 +40,8 @@ app.use('/admin', require('./routes/admin.routes'));
 app.use('/products', require('./routes/products.route'));
 app.use('/payment', require('./routes/payment.route'))
 app.use('/emails', require('./routes/email.route.js'));
+
+const path = require('path')
 
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, '../client/build')));
