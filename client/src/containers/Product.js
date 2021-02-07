@@ -13,7 +13,7 @@ class Product extends React.Component{
 
   async findOne(){
     try {
-      const response = await Axios.get(`${URL}/products/` + this.props.match.params.id)
+      const response = await Axios.get(`${URL}/api/products/` + this.props.match.params.id)
       this.setState({
         product: response.data.product
       });

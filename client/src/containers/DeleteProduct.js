@@ -18,7 +18,7 @@ handleSubmit = event => {
   event.preventDefault();
 
 
-  Axios.delete(`${URL}/products/delete/${this.state.id}`)
+  Axios.delete(`${URL}/api/products/delete/${this.state.id}`)
   .then (res => {
     console.log(res);
     console.log(res.data)
