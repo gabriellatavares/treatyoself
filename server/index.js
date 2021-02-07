@@ -37,7 +37,7 @@ require("dotenv").config({ path: "./.env" });
 
 // =============== ROUTES ==============================
 app.use('/admin', require('./routes/admin.routes'));
-app.use('/api/products', require('./routes/products.route'));
+app.use('/products', require('./routes/products.route'));
 app.use('/payment', require('./routes/payment.route'))
 app.use('/emails', require('./routes/email.route.js'));
 

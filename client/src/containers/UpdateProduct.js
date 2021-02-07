@@ -25,7 +25,7 @@ class UpdateProduct extends React.Component {
     e.preventDefault();
     const { name, image, description, price, stock } = this.state;
     try {
-      await Axios.post(`${URL}/api/products/update`, {
+      await Axios.post(`${URL}/products/update`, {
         _id: this.state._id,
         nameUp: name,
         imageUp: image,

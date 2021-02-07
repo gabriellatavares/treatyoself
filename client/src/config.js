@@ -1,4 +1,3 @@
-import axios from 'axios'
 // =======  preparing to the deplyment  ========
 const URL = window.location.hostname === `localhost`
             ? `http://localhost:3040` // 3030 should be replaced with your server port
