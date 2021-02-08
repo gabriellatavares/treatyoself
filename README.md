@@ -1,25 +1,13 @@
-# How to run it:
+# Description:
+This is a MERN(MongoDB, Express, React.js, Node) stack e-commerce website, you can sign-up and login and admin, complete CRUD (create, read, update and delete) operations on the products, add products to shopping-cart (increase and decrease quantity, delete on product from the cart and clear all products once). Conduct a fully automated payment using Stripe. You will receive a e-mail confirmation about your order. Also, you can contact us via a form (with nodemailer)! After the order is completed, the stock is updated.
 
-First clone the repo, then you will need 2 terminal windows.
+# View Application:
 
-In the first one you will run a client:
+Deploying on Digital Ocean: http://157.230.23.136/
 
-1) cd authentication_2020
-2) cd client
-3) npm install
-4) npm start
+# Purchasing Products:
 
-In the second one you will run a server:
-
-1) cd authentication_2020
-2) cd server
-3) npm install
-4) nodemon index.js
-
-If you are using windows and receive a Python related 
-error after running npm install from the server folder,
-run : 
-
-```
-npm install --global --production windows-build-tools
-```
+Card number: 4242 4242 4242 4242
+Expiration date: any future date
+CVC code: any code
+ZIP: any number
