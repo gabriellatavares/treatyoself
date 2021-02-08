@@ -5,7 +5,7 @@ import Total from './Total'
 class Cart extends React.Component {
 
   state = {
-    cart: JSON.parse(localStorage.getItem('shopping-cart')),
+    cart: JSON.parse(localStorage.getItem('shopping-cart')) || [],
     quantity: '',
   }
 
