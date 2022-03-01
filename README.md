@@ -3,7 +3,7 @@ This is a MERN(MongoDB, Express, React.js, Node) stack e-commerce website, you c
 
 # View Application:
 
-Deploying on Digital Ocean: http://157.230.23.136/
+https://nameless-caverns-26248.herokuapp.com/
 
 # Purchasing Products:
 
